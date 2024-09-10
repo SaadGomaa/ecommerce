@@ -1,0 +1,122 @@
+<!-- Main Slider -->
+<section>
+  <div class="row g-0">
+    <div class="col-md-9">
+      <div>
+        <owl-carousel-o [options]="customOptionsMain">
+          <ng-template carouselSlide>
+            <img
+              src="./assets/images/slider-image-3.jpeg"
+              class="w-100 object-fit-fill"
+              height="300px"
+              alt="frouts"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="./assets/images/slider-2.jpeg"
+              class="w-100 object-fit-fill"
+              height="300px"
+              alt="frouts"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="./assets/images/slider-image-1.jpeg"
+              class="w-100 object-fit-fill"
+              height="300px"
+              alt="frouts"
+            />
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+    <div class="col-md-3 nnn">
+      <div>
+        <img
+          src="./assets/images/slider-image-2.jpeg"
+          class="w-100"
+          height="150px"
+          alt="frouts"
+        />
+        <img
+          src="../../../assets/images/grocery-banner.png"
+          class="w-100"
+          height="150px"
+          alt="frouts"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section>
+  <h2 class="mt-1 mb-3 fw-bold">
+    Popular <span class="text-main">categories</span>
+  </h2>
+  <owl-carousel-o [options]="customOptionsCat">
+    @for (cat of categoriesList; track cat._id) {
+    <ng-template carouselSlide>
+      <div class="cat-item border p-2 m-1 border-1 rounded-4 overflow-hidden">
+        <img
+          [src]="cat.image"
+          [routerLink]="['/categories']"
+          height="250px"
+          class="w-100 object-fit-fill d-block cr rounded-4"
+          [alt]="cat.name"
+        />
+        <h2 class="h6 text-main mt-2 text-center">{{ cat.name }}</h2>
+      </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+</section>
+
+<!-- Products -->
+<section class="my-3">
+  <h2 class="fw-bold my-1">Popular<span class="text-main">Products</span></h2>
+  <input
+    [(ngModel)]="searchText"
+    class="form-control w-50 my-3 mx-auto"
+    type="search"
+    placeholder="Search By Name..."
+  />
+  <div class="row g-3">
+    @for (product of productsList.slice(0, 12) | search : searchText; track
+    product.id) {
+    <div class="resp">
+      <div class="product p-2 position-relative">
+        <div [routerLink]="['/details', product.id]" class="cr">
+          <img
+            [src]="product.imageCover"
+            class="w-100 object-fit-fill"
+            [alt]="product.title"
+          />
+          <h3 class="small text-main">{{ product.category.name }}</h3>
+          <h4 class="h6">{{ product.title | termtext : 2 }}</h4>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{ product.price }} EGP</span>
+            <div>
+              <span><i class="fas fa-star rating-color"></i></span>
+              <span class="text-muted">{{ product.ratingsAverage }}</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-main w-100" (click)="addCart(product.id)">
+          Add To Cart
+        </button>
+        <p>{{ product.brand.name }}</p>
+        <span
+          role="button"
+          class="heart"
+          [ngClass]="{ 'text-danger': isInWishList(product) }"
+          (click)="toggleWishList(product)"
+        >
+          <i class="fas fa-heart"></i>
+        </span>
+      </div>
+    </div>
+    }
+  </div>
+</section>

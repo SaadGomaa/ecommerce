@@ -1,0 +1,10 @@
+<section class="bg-main-light rounded-4 shadow w-75 p-4 my-2 mx-auto">
+  <h1 class="text-center text-main fw-bolder mt-2 mb-4">Sub Categories</h1>
+  <div class="row">
+    <div class="d-flex gap-3 flex-wrap">
+      @for (item of catDetails; track item._id) {
+      <h2 class="fw-bold rounded-2 p-3 h5 cr">{{ item.name }}</h2>
+      }
+    </div>
+  </div>
+</section>

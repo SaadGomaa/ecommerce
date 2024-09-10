@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+  h1 {
+    text-align: center !important;
+  }
+  section {
+    width: 100% !important;
+    padding-inline: 15px !important;
+  }
+  .alert {
+    width: 100% !important;
+  }
+}
+
+.eyeicon {
+  position: absolute;
+  top: 35px;
+  right: 33px;
+  cursor: pointer;
+}

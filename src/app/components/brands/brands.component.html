@@ -1,0 +1,15 @@
+<section class="rounded-4 shadow p-4 my-2">
+  <h1 class="text-main text-center fw-bolder mb-4">All Brands</h1>
+  <div class="row g-4">
+    @for (brand of brandsList; track brand._id ) {
+    <div class="resp">
+      <div class="card">
+        <img [src]="brand.image" [alt]="brand.name" class="w-100" />
+        <div class="card-body">
+          <h4 class="card-title text-main fw-bold">{{ brand.name }}</h4>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>

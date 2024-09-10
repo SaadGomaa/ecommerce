@@ -1,0 +1,45 @@
+<!-- Products -->
+<section class="my-3">
+  <input
+    [(ngModel)]="searchText"
+    class="form-control w-50 my-5 mx-auto"
+    type="search"
+    placeholder="Search By Name..."
+  />
+  <div class="row g-3">
+    @for (product of productsList | search : searchText; track product.id) {
+    <div class="resp">
+      <div class="product p-2 position-relative">
+        <div [routerLink]="['/details', product.id]" class="cr">
+          <img
+            [src]="product.imageCover"
+            class="w-100 object-fit-fill"
+            [alt]="product.title"
+            loading="lazy"
+          />
+          <h3 class="small text-main">{{ product.category.name }}</h3>
+          <h4 class="h6 fw-bolder">{{ product.title | termtext : 2 }}</h4>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{ product.price }} EGP</span>
+            <div>
+              <span><i class="fas fa-star rating-color"></i></span>
+              <span class="text-muted">{{ product.ratingsAverage }}</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-main w-100" (click)="addCart(product.id)">
+          Add To Cart
+        </button>
+        <p>{{ product.brand.name }}</p>
+        <span
+        role="button"
+        class="heart"
+        [ngClass]="{ 'text-danger': isInWishList(product) }"
+        (click)="toggleWishList(product)">
+        <i class="fas fa-heart"></i>
+      </span>
+      </div>
+    </div>
+    }
+  </div>
+</section>

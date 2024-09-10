@@ -1,0 +1,66 @@
+<section class="bg-main-light shadow p-2 my-2 rounded-4 w-75 mx-auto">
+  <h1 class="text-center fw-bolder my-2">Shipping Address</h1>
+  <form [formGroup]="shippingAddress" (ngSubmit)="orderSubmit()">
+    <div class="my-2">
+      <label for="details">Details :</label>
+      <input
+        id="details"
+        formControlName="details"
+        class="form-control my-1"
+        type="text"
+      />
+      @if (shippingAddress.get('details')?.errors &&
+      shippingAddress.get('details')?.touched) {
+      <div class="alert alert-danger w-75 py-2">
+        @if (shippingAddress.get('details')?.getError('required')) {
+        <p class="m-0">Details is Required</p>
+        }
+      </div>
+      }
+    </div>
+    <div class="my-2">
+      <label for="phone">Phone :</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        class="form-control my-1"
+        type="tel"
+        inputmode="numeric"
+      />
+      @if (shippingAddress.get('phone')?.errors &&
+      shippingAddress.get('phone')?.touched) {
+      <div class="alert alert-danger w-75 py-2">
+        @if (shippingAddress.get('phone')?.getError('required')) {
+        <p class="m-0">Phone is Required</p>
+        } @else if (shippingAddress.get('phone')?.getError('pattern')) {
+        <p class="m-0">Entar valid phone</p>
+        }
+      </div>
+      }
+    </div>
+    <div class="my-2">
+      <label for="name">City :</label>
+      <input
+        id="name"
+        formControlName="city"
+        class="form-control my-1"
+        type="text"
+      />
+      @if (shippingAddress.get('city')?.errors &&
+      shippingAddress.get('city')?.touched) {
+      <div class="alert alert-danger w-75 py-2">
+        @if (shippingAddress.get('city')?.getError('required')) {
+        <p class="m-0">Enter valid city</p>
+        }
+      </div>
+      }
+    </div>
+    <button
+      [disabled]="shippingAddress.invalid"
+      type="submit"
+      class="btn btn-outline-info w-100 fw-bolder my-4"
+    >
+      Check Out
+    </button>
+  </form>
+</section>

@@ -1,0 +1,18 @@
+<section class="my-3">
+  <div class="row g-3">
+    @for (category of categoriesList; track category._id) {
+    <div class="resp">
+      <div class="product p-2 position-relative" [routerLink]="['/catdetials',category._id]">
+        <img
+          [src]="category.image"
+          [routerLink]="['/categories']"
+          height="300px"
+          class="w-100 object-fit-fill d-block cr rounded-3"
+          [alt]="category.name"
+        />
+        <h2 class="h6 text-main mt-2 text-center">{{ category.name }}</h2>
+      </div>
+    </div>
+    }
+  </div>
+</section>

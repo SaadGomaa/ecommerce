@@ -1,0 +1,20 @@
+.count-item {
+  position: absolute;
+  top: -10%;
+  right: -55%;
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 12px;
+}
+@media (max-width: 576px) {
+  .noo {
+    display: none;
+  }
+  .yyy i {
+    font-size: 22px !important;
+    margin-left: 5px;
+  }
+  .top-marg {
+    margin-top: 20px !important;
+  }
+}

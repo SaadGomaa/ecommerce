@@ -1,0 +1,16 @@
+.order-details {
+  border: 1px solid rgb(97, 96, 96);
+  border-radius: 6px;
+}
+@media (max-width: 576px) {
+  section {
+    width: 100% !important;
+  }
+  .order-details {
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
+  .detord {
+    margin-top: 15px !important;
+  }
+}

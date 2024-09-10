@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed z-3 w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">
+      <img src="./assets/images/freshcart-logo.svg" alt="" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav top-marg">
+        <li class="nav-item">
+          <a
+            class="nav-link ps-2"
+            routerLinkActive="active-link"
+            routerLink="home"
+            >home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link ps-2"
+            routerLinkActive="active-link"
+            routerLink="product"
+            >products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link ps-2"
+            routerLinkActive="active-link"
+            routerLink="categories"
+            >categories</a
+          >
+        </li>
+        <li class="nav-item ps-2">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="brands"
+            >brands</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="wishlist"
+          >
+            <i class="fa-solid fa-heart fs-3 position-relative">
+              <div
+                class="bg-info count-item translate-middle text-white d-flex justify-content-center align-items-center badge"
+                routerLinkActive="bg-red"
+              >
+                {{ wishItemCount }}
+              </div></i
+            >
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="cart">
+            <i class="fa-solid fa-cart-shopping fs-3 position-relative">
+              <div
+                class="bg-info count-item translate-middle text-white d-flex justify-content-center align-items-center badge"
+                routerLinkActive="bg-red"
+              >
+                {{ cartItemCount }}
+              </div></i
+            >
+          </a>
+        </li>
+        <li class="nav-item noo">
+          <a
+            class="nav-link fs-6"
+            href="https://www.facebook.com/saad.gomaa.9003/"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </li>
+        <li class="nav-item noo">
+          <a class="nav-link">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </li>
+        <li class="nav-item noo">
+          <a class="nav-link">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item yyy">
+          <a class="nav-link" href="www.linkedin.com/in/saad-gomaa-971223292">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cr" (click)="_AuthService.logOut()"> SignOut </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
