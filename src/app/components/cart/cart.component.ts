@@ -51,7 +51,6 @@ export class CartComponent implements OnInit, OnDestroy {
               timeOut: 1900,
               closeButton: true,
               progressBar: true,
-              positionClass: 'toast-bottom-right',
             }
           );
           this.cartDetails = res.data;
@@ -68,7 +67,6 @@ export class CartComponent implements OnInit, OnDestroy {
             timeOut: 1900,
             closeButton: true,
             progressBar: true,
-            positionClass: 'toast-bottom-right',
           });
           this.cartDetails = res.data;
         },

@@ -84,11 +84,13 @@
         formControlName="password"
         class="form-control my-1"
         [type]="changeType ? 'password' : 'text'"
+        [(ngModel)]="userPassword"
       />
+      @if (userPassword.length > 0) {
       <span class="eyeicon" (click)="viewPass()">
         <i [ngClass]="visible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
       </span>
-      @if (registerForm.get('password')?.errors &&
+      } @if (registerForm.get('password')?.errors &&
       registerForm.get('password')?.touched) {
       <div class="alert alert-danger w-75 py-2">
         @if (registerForm.get('password')?.getError('required')) {
@@ -110,11 +112,13 @@
         formControlName="rePassword"
         class="form-control my-1"
         [type]="changeTypeRe ? 'password' : 'text'"
+        [(ngModel)]="userRePassword"
       />
+      @if (userRePassword.length > 0) {
       <span class="eyeicon" (click)="viewRePass()">
         <i [ngClass]="visibleRe ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
       </span>
-      @if (registerForm.getError('mismatch') &&
+      } @if (registerForm.getError('mismatch') &&
       registerForm.get('rePassword')?.touched) {
       <p class="alert alert-danger w-75 py-2 m-0">
         Password Confirmation Is Incoorect

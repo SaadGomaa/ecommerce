@@ -33,6 +33,8 @@ export class RegisterComponent implements OnDestroy {
   changeType: boolean = true;
   visibleRe: boolean = true;
   changeTypeRe: boolean = true;
+  userPassword: string = '';
+  userRePassword: string = '';
 
   // Create Variable to UnSubscribe
   registerSub!: Subscription;
@@ -96,7 +98,7 @@ export class RegisterComponent implements OnDestroy {
     this.changeType = !this.changeType;
   }
 
-    viewRePass() {
+  viewRePass() {
     this.visibleRe = !this.visibleRe;
     this.changeTypeRe = !this.changeTypeRe;
   }

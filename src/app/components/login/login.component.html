@@ -34,12 +34,14 @@
         id="Password"
         formControlName="password"
         class="form-control my-1"
+        [(ngModel)]="userPassword"
         [type]="changeType ? 'password' : 'text'"
       />
+      @if (userPassword.length > 0) {
       <span class="eyeicon" (click)="viewPass()">
         <i [ngClass]="visible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
       </span>
-      @if (loginForm.get('password')?.errors &&
+      } @if (loginForm.get('password')?.errors &&
       loginForm.get('password')?.touched) {
       <div class="alert alert-danger w-75 py-2">
         @if (loginForm.get('password')?.getError('required')) {

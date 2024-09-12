@@ -31,6 +31,7 @@ export class LoginComponent implements OnDestroy {
   loginSub!: Subscription;
   visible: boolean = true;
   changeType: boolean = true;
+  userPassword:string = '';
 
   loginForm: FormGroup = this._FormBuilder.group({
     email: [null, [Validators.required, Validators.email]],

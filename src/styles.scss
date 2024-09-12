@@ -114,3 +114,20 @@ a:hover {
   transform: translateX(45px);
   transition: opacity 0.8s, transform 0.8s;
 }
+
+@media (max-width: 499px) {
+  .product .btn-main {
+    transform: translateY(2%);
+  }
+  .heart {
+    opacity: 1;
+    transform: translateX(-8px);
+  }
+}
+
+input:focus {
+  box-shadow: #1a7c4371 0px 0px 5px 2px !important;
+  border: #548754 !important;
+}
+
+
