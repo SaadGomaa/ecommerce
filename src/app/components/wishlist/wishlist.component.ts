@@ -5,6 +5,7 @@ import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { IProduct } from '../../core/interfaces/iproduct';
 import { CountItemsService } from '../../core/services/count-items.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-wishlist',
@@ -14,15 +15,23 @@ import { CountItemsService } from '../../core/services/count-items.service';
   styleUrl: './wishlist.component.scss',
 })
 export class WishlistComponent implements OnInit, OnDestroy {
+  // Call Services
   private readonly _WishListService = inject(WishListService);
   private readonly _CartService = inject(CartService);
   private readonly _ToastrService = inject(ToastrService);
   private readonly _CountItemsService = inject(CountItemsService);
 
+  // Variable to Store Data
   allWishList: IProduct[] = [];
 
+  // Create Variable to UnSubscribe
+  gitWishListItemsSum!: Subscription;
+  addProductToCartSum!: Subscription;
+  removeFromWishListSum!: Subscription;
+
+
   ngOnInit(): void {
-    this._WishListService.gitWishListItems().subscribe({
+    this.gitWishListItemsSum = this._WishListService.gitWishListItems().subscribe({
       next: (res) => {
         this.allWishList = res.data;
       },
@@ -30,7 +39,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
   }
 
   addToCart(id: string): void {
-    this._CartService.addProductToCart(id).subscribe({
+    this.addProductToCartSum = this._CartService.addProductToCart(id).subscribe({
       next: (res) => {
         this._CountItemsService.addItem();
         this._ToastrService.success('Product added successfully to your cart', '', {
@@ -43,7 +52,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
   }
 
   removeItemWish(product: any): void {
-    this._WishListService.removeFromWishList(product).subscribe({
+    this.removeFromWishListSum = this._WishListService.removeFromWishList(product).subscribe({
       next: (res) => {
         this._CountItemsService.removeItemWish()
         this._WishListService.gitWishListItems().subscribe({
@@ -61,6 +70,8 @@ export class WishlistComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
+    this.gitWishListItemsSum?.unsubscribe();
+    this.addProductToCartSum?.unsubscribe();
+    this.removeFromWishListSum?.unsubscribe();
   }
 }

@@ -1,48 +1,90 @@
 import { Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { ProductComponent } from './components/product/product.component';
-import { CartComponent } from './components/cart/cart.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { BrandsComponent } from './components/brands/brands.component';
 import { authGuard } from './core/guards/auth.guard';
 import { logedGuard } from './core/guards/loged.guard';
-import { DetailsComponent } from './components/details/details.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { AllordersComponent } from './components/allorders/allorders.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { WishlistComponent } from './components/wishlist/wishlist.component';
-import { CatdetialsComponent } from './components/catdetials/catdetials.component';
 
 export const routes: Routes = [
   {
-    path: '', component: AuthLayoutComponent, canActivate:[logedGuard],
+    path: '', component: AuthLayoutComponent, canActivate: [logedGuard],
     children: [
-      { path: '',redirectTo:'login', pathMatch:'full' },
-      { path: 'login', component: LoginComponent, title:'Login' },
-      { path: 'register', component: RegisterComponent, title:'Register' },
-      { path: 'forgot', component: ForgotPasswordComponent, title:'Forgot PassWord' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { 
+        path: 'login', 
+        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent),
+        title: 'Login'
+      },
+      { 
+        path: 'register', 
+        loadComponent: () => import('./components/register/register.component').then(m => m.RegisterComponent),
+        title: 'Register'
+      },
+      { 
+        path: 'forgot', 
+        loadComponent: () => import('./components/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
+        title: 'Forgot PassWord'
+      },
     ],
   },
   {
-    path: '', component: BlankLayoutComponent, canActivate:[authGuard],
+    path: '', component: BlankLayoutComponent, canActivate: [authGuard],
     children: [
-      { path: '', redirectTo:'home', pathMatch:'full' },
-      { path: 'home', component: HomeComponent, title:'Home' },
-      { path: 'product', component: ProductComponent, title:'Products' },
-      { path: 'cart', component: CartComponent, title:'Cart' },
-      { path: 'categories', component: CategoriesComponent, title:'Categories' },
-      { path: 'brands', component: BrandsComponent, title:'Brands' },
-      { path: 'details/:id', component: DetailsComponent, title:'Details' },
-      { path: 'allorders', component: AllordersComponent, title:'All Orders' },
-      { path: 'orders/:id', component: OrdersComponent, title:'Orders' },
-      { path: 'catdetials/:id', component: CatdetialsComponent, title:'Categories Details' },
-      { path: 'wishlist', component: WishlistComponent, title:'Wish List' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { 
+        path: 'home', 
+        loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent),
+        title: 'Home' 
+      },
+      { 
+        path: 'product', 
+        loadComponent: () => import('./components/product/product.component').then(m => m.ProductComponent),
+        title: 'Products' 
+      },
+      { 
+        path: 'cart', 
+        loadComponent: () => import('./components/cart/cart.component').then(m => m.CartComponent),
+        title: 'Cart' 
+      },
+      { 
+        path: 'categories', 
+        loadComponent: () => import('./components/categories/categories.component').then(m => m.CategoriesComponent),
+        title: 'Categories' 
+      },
+      { 
+        path: 'brands', 
+        loadComponent: () => import('./components/brands/brands.component').then(m => m.BrandsComponent),
+        title: 'Brands' 
+      },
+      { 
+        path: 'details/:id', 
+        loadComponent: () => import('./components/details/details.component').then(m => m.DetailsComponent),
+        title: 'Details' 
+      },
+      { 
+        path: 'allorders', 
+        loadComponent: () => import('./components/allorders/allorders.component').then(m => m.AllordersComponent),
+        title: 'All Orders' 
+      },
+      { 
+        path: 'orders/:id', 
+        loadComponent: () => import('./components/orders/orders.component').then(m => m.OrdersComponent),
+        title: 'Orders' 
+      },
+      { 
+        path: 'catdetials/:id', 
+        loadComponent: () => import('./components/catdetials/catdetials.component').then(m => m.CatdetialsComponent),
+        title: 'Categories Details' 
+      },
+      { 
+        path: 'wishlist', 
+        loadComponent: () => import('./components/wishlist/wishlist.component').then(m => m.WishlistComponent),
+        title: 'Wish List' 
+      },
     ],
   },
-  { path: '**', component: NotfoundComponent, title:'NotFound' },
+  { 
+    path: '**', 
+    loadComponent: () => import('./components/notfound/notfound.component').then(m => m.NotfoundComponent),
+    title: 'NotFound' 
+  },
 ];

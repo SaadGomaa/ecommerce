@@ -18,11 +18,7 @@ import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CarouselModule,
-    RouterLink,
-    TermtextPipe,
-    SearchPipe,
+  imports: [CarouselModule,RouterLink,TermtextPipe,SearchPipe,
     FormsModule,
     NgClass,
   ],
