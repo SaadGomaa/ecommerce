@@ -74,17 +74,10 @@
 </section>
 
 <!-- Products -->
-<section class="my-3">
-  <h2 class="fw-bold my-1">Popular<span class="text-main">Products</span></h2>
-  <input
-    [(ngModel)]="searchText"
-    class="form-control w-50 my-3 mx-auto"
-    type="search"
-    placeholder="Search By Name..."
-  />
+<section class="mb-3">
+  <h2 class="fw-bold mb-4">Popular<span class="text-main">Products</span></h2>
   <div class="row g-3">
-    @for (product of productsList.slice(0, 12) | search : searchText; track
-    product.id) {
+    @for (product of productsList.slice(0, 12) ; track product.id) {
     <div class="resp">
       <div class="product p-2 position-relative">
         <div [routerLink]="['/details', product.id]" class="cr">

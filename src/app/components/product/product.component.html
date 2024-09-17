@@ -1,5 +1,5 @@
 <!-- Products -->
-<section class="my-3">
+<section class="my-2">
   <input
     [(ngModel)]="searchText"
     class="form-control w-50 my-5 mx-auto"
@@ -32,12 +32,13 @@
         </button>
         <p>{{ product.brand.name }}</p>
         <span
-        role="button"
-        class="heart"
-        [ngClass]="{ 'text-danger': isInWishList(product) }"
-        (click)="toggleWishList(product)">
-        <i class="fas fa-heart"></i>
-      </span>
+          role="button"
+          class="heart"
+          [ngClass]="{ 'text-danger': isInWishList(product) }"
+          (click)="toggleWishList(product)"
+        >
+          <i class="fas fa-heart"></i>
+        </span>
       </div>
     </div>
     }

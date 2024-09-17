@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Variable to Store Data
   productsList: IProduct[] = [];
   categoriesList: ICategories[] = [];
-  searchText: string = '';
   wishlistStatus: { [key: string]: boolean } = {};
 
   // Create Variable to UnSubscribe
