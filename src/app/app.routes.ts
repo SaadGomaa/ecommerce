@@ -11,17 +11,17 @@ export const routes: Routes = [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { 
         path: 'login', 
-        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent),
+        loadComponent: () => import('./core/pages/login/login.component').then(m => m.LoginComponent),
         title: 'Login'
       },
       { 
         path: 'register', 
-        loadComponent: () => import('./components/register/register.component').then(m => m.RegisterComponent),
+        loadComponent: () => import('./core/pages/register/register.component').then(m => m.RegisterComponent),
         title: 'Register'
       },
       { 
         path: 'forgot', 
-        loadComponent: () => import('./components/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
+        loadComponent: () => import('./core/pages/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
         title: 'Forgot PassWord'
       },
     ],
@@ -32,59 +32,59 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { 
         path: 'home', 
-        loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent),
+        loadComponent: () => import('./features/pages/home/home.component').then(m => m.HomeComponent),
         title: 'Home' 
       },
       { 
         path: 'product', 
-        loadComponent: () => import('./components/product/product.component').then(m => m.ProductComponent),
+        loadComponent: () => import('./features/pages/product/product.component').then(m => m.ProductComponent),
         title: 'Products' 
       },
       { 
         path: 'cart', 
-        loadComponent: () => import('./components/cart/cart.component').then(m => m.CartComponent),
+        loadComponent: () => import('./features/pages/cart/cart.component').then(m => m.CartComponent),
         title: 'Cart' 
       },
       { 
         path: 'categories', 
-        loadComponent: () => import('./components/categories/categories.component').then(m => m.CategoriesComponent),
+        loadComponent: () => import('./features/pages/categories/categories.component').then(m => m.CategoriesComponent),
         title: 'Categories' 
       },
       { 
         path: 'brands', 
-        loadComponent: () => import('./components/brands/brands.component').then(m => m.BrandsComponent),
+        loadComponent: () => import('./features/pages/brands/brands.component').then(m => m.BrandsComponent),
         title: 'Brands' 
       },
       { 
         path: 'details/:id', 
-        loadComponent: () => import('./components/details/details.component').then(m => m.DetailsComponent),
+        loadComponent: () => import('./features/pages/details/details.component').then(m => m.DetailsComponent),
         title: 'Details' 
       },
       { 
         path: 'allorders', 
-        loadComponent: () => import('./components/allorders/allorders.component').then(m => m.AllordersComponent),
+        loadComponent: () => import('./features/pages/allorders/allorders.component').then(m => m.AllordersComponent),
         title: 'All Orders' 
       },
       { 
         path: 'orders/:id', 
-        loadComponent: () => import('./components/orders/orders.component').then(m => m.OrdersComponent),
+        loadComponent: () => import('./features/pages/orders/orders.component').then(m => m.OrdersComponent),
         title: 'Orders' 
       },
       { 
         path: 'catdetials/:id', 
-        loadComponent: () => import('./components/catdetials/catdetials.component').then(m => m.CatdetialsComponent),
+        loadComponent: () => import('./features/pages/catdetials/catdetials.component').then(m => m.CatdetialsComponent),
         title: 'Categories Details' 
       },
       { 
         path: 'wishlist', 
-        loadComponent: () => import('./components/wishlist/wishlist.component').then(m => m.WishlistComponent),
+        loadComponent: () => import('./features/pages/wishlist/wishlist.component').then(m => m.WishlistComponent),
         title: 'Wish List' 
       },
     ],
   },
   { 
     path: '**', 
-    loadComponent: () => import('./components/notfound/notfound.component').then(m => m.NotfoundComponent),
+    loadComponent: () => import('./features/pages/notfound/notfound.component').then(m => m.NotfoundComponent),
     title: 'NotFound' 
   },
 ];

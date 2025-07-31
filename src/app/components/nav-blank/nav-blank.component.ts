@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
-import { CountItemsService } from '../../core/services/count-items.service';
+import { CountItemsService } from '../../features/services/count-items.service';
 import { Subscription } from 'rxjs';
 
 @Component({
